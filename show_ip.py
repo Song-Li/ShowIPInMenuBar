@@ -4,7 +4,7 @@ import re
 import json
 from urllib.request import urlopen
 class ShowIP(rumps.App):
-    @rumps.clicked("refresh")
+    @rumps.clicked("Refresh")
     def refresh(self, _):
         self.__init__(self.get_ip())
 
@@ -18,8 +18,9 @@ class ShowIP(rumps.App):
         city = data['city']
         country=data['country']
         region=data['region']
+        short_org = ''.join(o[0] for o in org.split(' ')[1:])
 
-        return f"{IP} {city} {region}"
+        return f"{IP} {city} {region} {short_org}"
 
 if __name__ == '__main__':
     app = ShowIP("ShowIP")
